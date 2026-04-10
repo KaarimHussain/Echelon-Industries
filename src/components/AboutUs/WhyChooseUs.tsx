@@ -1,11 +1,11 @@
 import { Eye, Target } from "lucide-react";
 
-export default function Testimonials() {
+export default function WhyChooseUs() {
     return (
         <>
             <div className="min-h-[50vh] w-full">
                 <div className="container mx-auto py-10 md:py-20 px-5 md:px-10 lg:px-25 xl:px-35">
-                    <div className="flex flex-col items-center col-span-12">
+                    <div className="flex flex-col items-center col-span-12 mb-10">
                         <p className="text-xl md:text-2xl font-medium text-primary text-center">
                             Innovating at Every Step
                         </p>

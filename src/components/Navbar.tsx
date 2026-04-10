@@ -26,15 +26,11 @@ export default function Nav() {
     },
     {
       name: "Products",
-      link: "/products",
+      link: "/products#product-listing",
     },
     {
       name: "Our Projects",
       link: "/projects",
-    },
-    {
-      name: "Contact Us",
-      link: "/contact",
     },
   ];
 

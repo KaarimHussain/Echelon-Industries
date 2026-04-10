@@ -1,3 +1,4 @@
+import OurBrands from "@/components/Brands";
 import ContactUs from "@/components/ContactUs";
 import Divider from "@/components/Divider";
 import Innovation from "@/components/Innovation";
@@ -10,6 +11,7 @@ export default function OurBrandsAndPartners() {
             <OurBrandsHero />
             <Divider bottombox />
             <Partners theme="dark" />
+            <OurBrands />
             <Innovation />
             <ContactUs />
         </>

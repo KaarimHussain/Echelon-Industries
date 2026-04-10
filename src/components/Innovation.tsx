@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import InnovationCard1 from "@/assets/imgs/Innovation.png"
 import InnovationCard2 from "@/assets/imgs/Innovation1.png"
-import InnovationCard3 from "@/assets/imgs/Innovation2.png"
+import InnovationCard3 from "@/assets/imgs/HVACProject.png"
 
 const InnovationCards = [
     {
@@ -17,8 +17,8 @@ const InnovationCards = [
         image: InnovationCard2,
     },
     {
-        title: "Comprehensive Safety Solutions",
-        description: "Protect your people and infrastructure with our full spectrum of safety equipment and maintenance services. We deliver high-quality products and expert support—ensuring compliance, reducing hazards, and keeping your operations at peak performance.",
+        title: "Advanced HVACR Engineering",
+        description: "Innovative climate control and refrigeration solutions engineered for industrial precision. Our high-efficiency HVACR systems optimize thermal performance, enhance air quality, and reduce energy consumption—ensuring your facility maintains the perfect environment for peak operational efficiency.",
         image: InnovationCard3,
     },
 ];

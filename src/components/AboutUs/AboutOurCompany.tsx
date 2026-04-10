@@ -8,7 +8,7 @@ export default function AboutOurCompany() {
                 <div className="container mx-auto py-10 md:py-20 px-5 md:px-10 lg:px-20 xl:px-32">
                     {/* Header */}
                     <div className="flex flex-col items-center mb-12 md:mb-16">
-                        <p className="text-xl md:text-2xl font-medium text-green-400 text-center mb-2">
+                        <p className="text-xl md:text-2xl font-medium text-primary text-center mb-2">
                             About Us
                         </p>
                         <h2 className="text-3xl md:text-5xl text-white font-bold text-center">

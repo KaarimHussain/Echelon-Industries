@@ -2,7 +2,7 @@ import GlobalMapImage from "@/assets/imgs/GlobeMap.png"
 import { Facebook, Linkedin, Instagram, ArrowDownRight, Map, Globe, Phone, Mail } from "lucide-react"
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Email, PhoneNumber } from "./Content";
+import { Email, PhoneNumber, SecondaryPhoneNumber } from "./Content";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -100,6 +100,12 @@ export default function ContactUs() {
                                         className="text-sm md:text-base text-secondary-foreground hover:text-primary transition-colors"
                                     >
                                         {PhoneNumber}
+                                    </a>
+                                    <a
+                                        href="tel:+923074441083"
+                                        className="text-sm md:text-base text-secondary-foreground hover:text-primary transition-colors"
+                                    >
+                                        {SecondaryPhoneNumber}
                                     </a>
                                 </div>
                             </div>

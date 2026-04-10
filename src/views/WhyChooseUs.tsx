@@ -1,11 +1,12 @@
 import AboutHero from "@/components/AboutUs/AboutHero";
 import AboutOurCompany from "@/components/AboutUs/AboutOurCompany";
-import Testimonials from "@/components/AboutUs/AboutTestimonials";
+import OurCompanyEmployee from "@/components/AboutUs/OurCompanyEmployee";
+import WhyChooseUs from "@/components/AboutUs/WhyChooseUs";
 import OurBrands from "@/components/Brands";
 import ContactUs from "@/components/ContactUs";
 import Divider from "@/components/Divider";
-import Innovation from "@/components/Innovation";
 import Partners from "@/components/Partners";
+import Projects from "@/components/Projects";
 
 export default function AboutUs() {
     return (
@@ -14,10 +15,11 @@ export default function AboutUs() {
             <Divider bottombox />
             <AboutOurCompany />
             <Divider upperbox variant />
-            <Testimonials />
+            <WhyChooseUs />
+            <OurCompanyEmployee />
             <Partners />
-            <Innovation />
             <OurBrands />
+            <Projects />
             <ContactUs />
         </>
     )
