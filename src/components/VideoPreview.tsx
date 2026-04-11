@@ -8,10 +8,10 @@ export default function VideoPreview() {
                 {/* Header Section */}
                 <div className="flex flex-col items-center text-center space-y-8 mb-16">
                     <div className="space-y-4 max-w-3xl">
-                        <span className="text-primary font-montserrat uppercase tracking-[0.2em] text-sm font-bold opacity-80">
+                        <span className={`text-xl md:text-2xl font-medium text-primary text-center`}>
                             Visual Showcase
                         </span>
-                        <h2 className="text-4xl md:text-6xl font-bold font-montserrat tracking-tight text-foreground">
+                        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
                             Experience Our Growth
                         </h2>
                         <div className="h-1.5 w-24 bg-primary mx-auto rounded-full" />

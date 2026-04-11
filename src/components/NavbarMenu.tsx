@@ -1,6 +1,5 @@
-"use client"
-
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "react-router-dom"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -104,82 +103,101 @@ export default function Navbar() {
                         </Link>
 
                         {/* Mobile Menu Button */}
-                        <button
+                        <motion.button
+                            whileTap={{ scale: 0.95 }}
                             onClick={toggleMenu}
-                            className="md:hidden p-2 hover:bg-neutral-800 rounded-lg transition-colors"
+                            className="md:hidden p-2 hover:bg-neutral-800 rounded-lg transition-colors border border-primary/20"
                             aria-label="Toggle menu"
                         >
                             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                        </button>
+                        </motion.button>
                     </div>
                 </div>
 
                 {/* Mobile Navigation */}
-                {isOpen && (
-                    <div className="md:hidden pb-4 border-t border-primary/30">
-                        <div className="flex flex-col gap-3 pt-4">
-                            <Link
-                                to="/"
-                                className="text-primary-foreground hover:text-primary transition-colors font-medium px-2 py-2"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Home
-                            </Link>
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div 
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="md:hidden overflow-hidden pb-6 border-t border-primary/30"
+                        >
+                            <div className="flex flex-col gap-1 pt-4">
+                                <motion.div initial={{ x: -10, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.1 }}>
+                                    <Link
+                                        to="/"
+                                        className="text-primary-foreground hover:text-primary transition-colors font-medium px-2 py-3 flex items-center justify-between"
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        Home
+                                    </Link>
+                                </motion.div>
 
-                            {/* Mobile Our Company Dropdown */}
-                            <div className="px-2">
-                                <DropdownMenu>
-                                    <DropdownMenuTrigger asChild>
-                                        <button className="flex items-center gap-1 text-primary-foreground hover:text-primary transition-colors font-medium w-full py-2">
-                                            Our Company
-                                            <ChevronDown className="w-4 h-4" />
-                                        </button>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent align="start" className="bg-secondary border-primary/10">
-                                        <DropdownMenuItem className="text-primary-foreground hover:text-primary hover:bg-secondary/60 cursor-pointer">
-                                            <Link to="/about-us" className="w-full">
-                                                About Us
-                                            </Link>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem className="text-primary-foreground hover:text-primary hover:bg-secondary/60 cursor-pointer">
-                                            <Link to="/our-brands" className="w-full">
-                                                Our Brands
-                                            </Link>
-                                        </DropdownMenuItem>
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
+                                {/* Mobile Our Company Dropdown */}
+                                <motion.div initial={{ x: -10, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="px-2">
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger asChild>
+                                            <button className="flex items-center gap-1 text-primary-foreground hover:text-primary transition-colors font-medium w-full py-3">
+                                                Our Company
+                                                <ChevronDown className="w-4 h-4" />
+                                            </button>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent align="start" className="bg-secondary border-primary/10">
+                                            <DropdownMenuItem className="text-primary-foreground hover:text-primary hover:bg-secondary/60 cursor-pointer">
+                                                <Link to="/about" className="w-full">
+                                                    About Us
+                                                </Link>
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem className="text-primary-foreground hover:text-primary hover:bg-secondary/60 cursor-pointer">
+                                                <Link to="/brands" className="w-full">
+                                                    Our Brands
+                                                </Link>
+                                            </DropdownMenuItem>
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
+                                </motion.div>
+
+                                <motion.div initial={{ x: -10, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
+                                    <Link
+                                        to="/products"
+                                        className="text-primary-foreground hover:text-primary transition-colors font-medium px-2 py-3 flex items-center justify-between"
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        Products
+                                    </Link>
+                                </motion.div>
+
+                                <motion.div initial={{ x: -10, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.4 }}>
+                                    <Link
+                                        to="/projects"
+                                        className="text-primary-foreground hover:text-primary transition-colors font-medium px-2 py-3 flex items-center justify-between"
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        Our Projects
+                                    </Link>
+                                </motion.div>
+
+                                <motion.div initial={{ x: -10, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.5 }}>
+                                    <Link
+                                        to="/contact"
+                                        className="text-primary-foreground hover:text-primary transition-colors font-medium px-2 py-3 flex items-center justify-between"
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        Contact Us
+                                    </Link>
+                                </motion.div>
+
+                                <motion.div initial={{ y: 10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.6 }} className="pt-2">
+                                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-12">
+                                        Get In Touch
+                                    </Button>
+                                </motion.div>
                             </div>
-
-                            <Link
-                                to="/products"
-                                className="text-primary-foreground hover:text-primary transition-colors font-medium px-2 py-2"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Products
-                            </Link>
-
-                            <Link
-                                to="/projects"
-                                className="text-primary-foreground hover:text-primary transition-colors font-medium px-2 py-2"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Our Projects
-                            </Link>
-
-                            <Link
-                                to="/contact"
-                                className="text-primary-foreground hover:text-primary transition-colors font-medium px-2 py-2"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Contact Us
-                            </Link>
-
-                            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold mt-2">
-                                Get In Touch
-                            </Button>
-                        </div>
-                    </div>
-                )}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </nav>
     )

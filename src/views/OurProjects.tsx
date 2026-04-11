@@ -1,7 +1,6 @@
-import OurBrands from "@/components/Brands";
 import ContactUs from "@/components/ContactUs";
 import Divider from "@/components/Divider";
-import Innovation from "@/components/Innovation";
+import CompanyProjects from "@/components/OurProjects/CompanyProjects";
 import OurProjectsHero from "@/components/OurProjects/OurProjectsHero";
 import Projects from "@/components/Projects";
 
@@ -10,9 +9,8 @@ export default function OurProjects() {
         <>
             <OurProjectsHero />
             <Divider bottombox />
+            <CompanyProjects />
             <Projects />
-            <Innovation />
-            <OurBrands/>
             <ContactUs />
         </>
     )
