@@ -7,8 +7,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 export default function ContactUs() {
-
-
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -18,9 +16,7 @@ export default function ContactUs() {
     function validateEmail(mail: string) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
     }
-
     // Sonner toast notification
-
     // Form submission handler
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -55,9 +51,6 @@ export default function ContactUs() {
             setLoader(false);
         }
     };
-
-
-
     return (
         <>
             <div className="min-h-screen w-full bg-secondary">
@@ -151,7 +144,7 @@ export default function ContactUs() {
                                         Email <Mail />
                                     </p>
                                     <a
-                                        href="mailto:info@company.com"
+                                        href={`mailto:${Email}`}
                                         className="text-sm md:text-base text-secondary-foreground hover:text-primary transition-colors"
                                     >
                                         {Email}
