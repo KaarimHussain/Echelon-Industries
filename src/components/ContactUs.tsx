@@ -152,14 +152,14 @@ export default function ContactUs() {
                                 </div>
                             </div>
 
-                            {/* Since 2013 - Large Text */}
+                            {/* Since 1996 - Large Text */}
                             <div className="mt-8 md:mt-12 w-full overflow-hidden">
                                 <p className="text-6xl md:text-7xl lg:text-8xl font-black text-transparent uppercase "
                                     style={{
                                         WebkitTextStroke: "2px var(--primary)"
                                     }}
                                 >
-                                    Since 2013
+                                    Since 1996
                                 </p>
                             </div>
                         </div>
