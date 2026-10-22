@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Calendar, Clock, Tag, ArrowRight, Rss } from "lucide-react";
-import { fetchPosts, formatDate, stripHtml } from "@/lib/blog-api";
+import { fetchPosts, formatDate } from "@/lib/blog-api";
 import type { BlogPost } from "@/types/blog";
 import CustomHero from "@/components/CustomHero";
 

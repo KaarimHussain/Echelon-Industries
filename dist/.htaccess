@@ -1,0 +1,120 @@
+# -------------------------------------------------------
+# Echelon Industries — Apache / LiteSpeed Configuration
+# -------------------------------------------------------
+
+# ----------------------------------
+# MIME Types (critical for ES modules)
+# ----------------------------------
+<IfModule mod_mime.c>
+    AddType application/javascript .js .mjs
+    AddType text/css .css
+    AddType application/json .json
+    AddType font/woff .woff
+    AddType font/woff2 .woff2
+    AddType image/svg+xml .svg
+    AddType image/webp .webp
+</IfModule>
+
+# ----------------------------------
+# SPA Routing (React Router support)
+# ----------------------------------
+# Redirect all non-file, non-directory requests to index.html
+# so React Router can handle client-side navigation.
+
+Options -MultiViews
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove www (optional — remove these 2 lines if you want to keep www)
+# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+# RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# Serve existing files and directories directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Fallback all other routes to index.html
+RewriteRule ^ index.html [QSA,L]
+
+# ----------------------------------
+# Gzip / Brotli Compression
+# ----------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+# ----------------------------------
+# Browser Caching
+# ----------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # HTML — no cache (always fresh)
+    ExpiresByType text/html                         "access plus 0 seconds"
+
+    # JS / CSS — Vite adds content hashes so long cache is safe
+    ExpiresByType text/css                          "access plus 1 year"
+    ExpiresByType application/javascript            "access plus 1 year"
+    ExpiresByType application/x-javascript         "access plus 1 year"
+
+    # Images
+    ExpiresByType image/png                         "access plus 6 months"
+    ExpiresByType image/jpg                         "access plus 6 months"
+    ExpiresByType image/jpeg                        "access plus 6 months"
+    ExpiresByType image/gif                         "access plus 6 months"
+    ExpiresByType image/svg+xml                     "access plus 6 months"
+    ExpiresByType image/webp                        "access plus 6 months"
+
+    # Fonts
+    ExpiresByType font/woff                         "access plus 1 year"
+    ExpiresByType font/woff2                        "access plus 1 year"
+    ExpiresByType application/font-woff             "access plus 1 year"
+    ExpiresByType application/font-woff2            "access plus 1 year"
+
+    # Favicon / manifest
+    ExpiresByType image/x-icon                      "access plus 1 year"
+    ExpiresByType application/manifest+json         "access plus 1 week"
+</IfModule>
+
+# ----------------------------------
+# Security Headers
+# ----------------------------------
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Clickjacking protection
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # XSS protection (legacy browsers)
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Referrer policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # HSTS — force HTTPS for 1 year (enable only after confirming HTTPS works)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+    # Remove server signature
+    Header unset Server
+    Header unset X-Powered-By
+</IfModule>
+
+# ----------------------------------
+# Custom Error Pages
+# ----------------------------------
+ErrorDocument 404 /index.html
+ErrorDocument 403 /index.html

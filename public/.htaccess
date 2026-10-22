@@ -3,6 +3,19 @@
 # -------------------------------------------------------
 
 # ----------------------------------
+# MIME Types (critical for ES modules)
+# ----------------------------------
+<IfModule mod_mime.c>
+    AddType application/javascript .js .mjs
+    AddType text/css .css
+    AddType application/json .json
+    AddType font/woff .woff
+    AddType font/woff2 .woff2
+    AddType image/svg+xml .svg
+    AddType image/webp .webp
+</IfModule>
+
+# ----------------------------------
 # SPA Routing (React Router support)
 # ----------------------------------
 # Redirect all non-file, non-directory requests to index.html
