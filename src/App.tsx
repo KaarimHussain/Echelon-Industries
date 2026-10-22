@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
 import { useEffect } from "react"
 import { AnimatePresence } from "framer-motion"
+import { HelmetProvider } from "react-helmet-async"
 import Home from "@/views/Home"
 import Footer from "./components/Footer"
 import CompanyProfile from "./views/Company-Profile"
@@ -9,6 +10,8 @@ import AboutUs from "./views/WhyChooseUs"
 import OurBrandsAndPartners from "./views/OurBrandsAndPartners"
 import OurProjects from "./views/OurProjects"
 import ContactUsPage from "./views/ContactUs"
+import Blog from "./views/Blog"
+import BlogPostPage from "./views/BlogPost"
 import { Toaster } from "@/components/ui/sonner"
 import Navbar from "./components/NavbarMenu"
 import PageTransition from "./components/PageTransition"
@@ -36,6 +39,8 @@ function AnimatedRoutes() {
         <Route path="/projects" element={<PageTransition><OurProjects /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><ContactUsPage /></PageTransition>} />
         <Route path="/company-profile" element={<PageTransition><CompanyProfile /></PageTransition>} />
+        <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+        <Route path="/blog/:slug" element={<PageTransition><BlogPostPage /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   );
@@ -43,13 +48,15 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Navbar />
-      <AnimatedRoutes />
-      <Footer />
-      <Toaster />
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <Navbar />
+        <AnimatedRoutes />
+        <Footer />
+        <Toaster />
+      </Router>
+    </HelmetProvider>
   )
 }
 

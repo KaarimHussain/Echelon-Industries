@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import EchIndusButton from "./Button";
 import HeroLogo from "@/assets/imgs/Hero-Logo.png";
+import HeroBg from "@/assets/imgs/hero-background.png";
 
 export default function Hero() {
     return (
@@ -12,6 +13,7 @@ export default function Hero() {
                     muted
                     loop
                     playsInline
+                    poster={HeroBg}
                     className="absolute top-0 left-0 w-full h-full object-cover"
                 >
                     <source src="https://cdn.echelonindustries.net/cdn/videos/c6b81233db5a9405_1775695564.mp4" type="video/mp4" />

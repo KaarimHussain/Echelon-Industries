@@ -6,27 +6,31 @@ import {
     CarouselContent,
     CarouselItem,
 } from "@/components/ui/carousel"
+import ProjectCard1 from "@/assets/imgs/ProjectCard.png";
+import ProjectCard2 from "@/assets/imgs/ProjectCard1.png";
+import ProjectCard3 from "@/assets/imgs/ProjectCard2.png";
+import ProjectCard4 from "@/assets/imgs/ProjectCard3.png";
 
 const ProjectsData = [
     {
         title: "Reliable Fire Fighting Solutions for Ultimate Safety",
         description: "Installation and maintenance of sophisticated fire fighting systems, ensuring maximum protection and compliance for industrial environments.",
-        image: "https://cdn.echelonindustries.net/cdn/images/e926d30eb5003098_1775845090.png"
+        image: ProjectCard1
     },
     {
         title: "Future-Ready Elevators for Smart Infrastructure",
         description: "Design and deployment of modern elevator systems, integrating smart technologies for safer and more efficient building transportation.",
-        image: "https://cdn.echelonindustries.net/cdn/images/73ae1ca8c808d4f7_1775845061.png"
+        image: ProjectCard2
     },
     {
         title: "Premium HVACR Solutions for Industrial Excellence",
         description: "Engineered heating, cooling, and refrigeration systems designed to optimize energy efficiency and maintain precise climate control in industrial facilities.",
-        image: "https://cdn.echelonindustries.net/cdn/images/2d9af2596dfcd9ec_1775844460.jpg"
+        image: ProjectCard3
     },
     {
         title: "Comprehensive Drainage System for Industrials",
         description: "Development and integration of robust drainage systems, managing water flow and preventing flooding to keep facilities safe and operational.",
-        image: "https://cdn.echelonindustries.net/cdn/images/16c08a1cddf1f72d_1775844760.jpg"
+        image: ProjectCard4
     },
 ]
 

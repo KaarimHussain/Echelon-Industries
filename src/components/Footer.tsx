@@ -13,6 +13,7 @@ const footerMenuData = {
     ],
     secondaryMenu: [
         { title: "Our Projects", link: "/projects" },
+        { title: "Blog", link: "/blog" },
         { title: "Contact Us", link: "/contact" }
     ]
 };

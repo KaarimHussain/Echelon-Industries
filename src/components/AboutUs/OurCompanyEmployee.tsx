@@ -1,34 +1,59 @@
-import CEOImg from "@/assets/imgs/Employees/CEO.png";
-import CTOImg from "@/assets/imgs/Employees/CTO.png";
-import HRImg from "@/assets/imgs/Employees/HR.png";
-import PDImg from "@/assets/imgs/Employees/ProjectDirector.png";
+import { Mail, Phone } from "lucide-react";
 
 const employees = [
     {
-        name: "Arthur Vance",
-        position: "Chief Executive Officer",
-        motive: "Redefining industrial standards through elite engineering and sustainable vision, ensuring a safer tomorrow.",
-        image: CEOImg
+        name: "Usama Ahmed",
+        position: "General Managing Director",
+        phone: "+92 307 444 1083",
+        email: "usama@echelonindustries.net",
+        image: "/Team/Usama Ahmed.png"
     },
     {
-        name: "Dr. Elias Thorne",
-        position: "Chief Technology Officer",
-        motive: "Pioneering the next generation of smart climate control systems through advanced thermal dynamics.",
-        image: CTOImg
+        name: "Hassan Ahmed",
+        position: "Deputy General Managing Director",
+        phone: null,
+        email: null,
+        image: "/Team/Hassan Ahmed.png"
     },
     {
-        name: "Sarah Kensington",
-        position: "Director of Operations",
-        motive: "Streamlining complex industrial workflows with military precision and a focus on operational safety.",
-        image: HRImg
+        name: "Khalid Waseem",
+        position: "Senior Sales Manager",
+        phone: "+92 307 444 1090",
+        email: "khalid@echelonindustries.net",
+        image: "/Team/Khalid-Waseem.png"
     },
     {
-        name: "Marcus Sterling",
-        position: "Project Director",
-        motive: "Leading infrastructure projects from concept to reality with uncompromising quality and speed.",
-        image: PDImg
-    }
+        name: "Taha Saifuddin",
+        position: "Manager Sales & Application",
+        phone: "+92 307 444 1087",
+        email: "taha@echelonindustries.net",
+        image: "/Team/Taha-Saifuddin.png"
+    },
+    {
+        name: "Arbab Gilani",
+        position: "General Manager (Sales & Marketing)",
+        phone: "+92 300 922 7096",
+        email: "gm.sales@echelonindustries.net",
+        image: "/Team/Arbab Gilani.png"
+    },
+    {
+        name: "Muhammad Farooq Azam",
+        position: "Senior Manager Sales & Technical",
+        phone: "+92 307 444 1095",
+        email: "engineering@echelonindustries.net",
+        image: "/Team/Muhammad-Farooq-Azam.png"
+    },
+    {
+        name: "Mushtaq Attari",
+        position: "Application Engineer",
+        phone: "+92 307 444 1090",
+        email: "application@echelonindustries.net",
+        image: "/Team/Mushtaq-Attari.png"
+    },
 ];
+
+const topTier = employees.slice(0, 2);
+const restTier = employees.slice(2);
 
 export default function OurCompanyEmployee() {
     return (
@@ -49,40 +74,83 @@ export default function OurCompanyEmployee() {
                     </div>
                 </div>
 
-                {/* Grid Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
-                    {employees.map((employee, index) => (
-                        <div key={index} className="group cursor-pointer">
-                            {/* Image Container */}
-                            <div className="relative aspect-[4/5] overflow-hidden bg-muted transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]">
-                                <img
-                                    src={employee.image}
-                                    alt={employee.name}
-                                    className="w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-110 group-hover:rotate-1"
-                                />
+                {/* Top Leadership Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12 mb-12 max-w-2xl">
+                    {topTier.map((employee, index) => (
+                        <EmployeeCard key={index} employee={employee} />
+                    ))}
+                </div>
 
-                                {/* Overlay Motive on Hover */}
-                                <div className="absolute inset-0 bg-primary/95 p-8 flex flex-col justify-end translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]">
-                                    <p className="text-white text-lg font-medium leading-relaxed italic mb-4">
-                                        "{employee.motive}"
-                                    </p>
-                                    <div className="h-1 w-12 bg-white rounded-full" />
-                                </div>
-                            </div>
-
-                            {/* Info Section */}
-                            <div className="mt-8 space-y-2">
-                                <h3 className="text-2xl font-bold text-foreground transition-colors group-hover:text-primary">
-                                    {employee.name}
-                                </h3>
-                                <p className="text-primary font-semibold tracking-wide text-xs uppercase opacity-80">
-                                    {employee.position}
-                                </p>
-                            </div>
-                        </div>
+                {/* Rest of Team Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-12">
+                    {restTier.map((employee, index) => (
+                        <EmployeeCard key={index} employee={employee} />
                     ))}
                 </div>
             </div>
         </section>
+    );
+}
+
+function EmployeeCard({ employee }: { employee: typeof employees[0] }) {
+    return (
+        <div className="group cursor-pointer">
+            {/* Image Container */}
+            <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+                <img
+                    src={employee.image}
+                    alt={employee.name}
+                    className="w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-110 group-hover:rotate-1"
+                />
+
+                {/* Hover Overlay — contact info */}
+                <div className="absolute inset-0 bg-primary/95 p-8 flex flex-col justify-end translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]">
+                    <p className="text-white font-bold text-base uppercase tracking-wide mb-5">
+                        {employee.position}
+                    </p>
+                    <div className="flex flex-col gap-3">
+                        {employee.phone ? (
+                            <a
+                                href={`tel:${employee.phone.replace(/\s/g, "")}`}
+                                className="flex items-center gap-2 text-white/90 hover:text-white text-sm transition-colors"
+                                onClick={e => e.stopPropagation()}
+                            >
+                                <Phone className="w-4 h-4 shrink-0" />
+                                {employee.phone}
+                            </a>
+                        ) : (
+                            <span className="flex items-center gap-2 text-white/50 text-sm italic">
+                                <Phone className="w-4 h-4 shrink-0" />
+                                Contact info coming soon
+                            </span>
+                        )}
+                        {employee.email && (
+                            <a
+                                href={`mailto:${employee.email}`}
+                                className="flex items-center gap-2 text-white/90 hover:text-white text-sm transition-colors break-all"
+                                onClick={e => e.stopPropagation()}
+                            >
+                                <Mail className="w-4 h-4 shrink-0" />
+                                {employee.email}
+                            </a>
+                        )}
+                    </div>
+                    <div className="h-1 w-12 bg-white rounded-full mt-6" />
+                </div>
+            </div>
+
+            {/* Info Section */}
+            <div className="mt-6 space-y-1">
+                <h3 className="text-xl font-bold text-foreground transition-colors group-hover:text-primary">
+                    {employee.name}
+                </h3>
+                <p className="text-primary font-semibold tracking-wide text-xs uppercase opacity-80">
+                    {employee.position}
+                </p>
+                {employee.phone && (
+                    <p className="text-muted-foreground text-xs pt-1">{employee.phone}</p>
+                )}
+            </div>
+        </div>
     );
 }

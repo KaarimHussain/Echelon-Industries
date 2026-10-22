@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { Building2, Factory, Hospital, ShoppingBag } from "lucide-react";
 import { Link } from 'react-router-dom';
+import FactoriesImg from "@/assets/imgs/Industries/Factories.jpg";
+import CommercialBuildingImg from "@/assets/imgs/Industries/Commercial-Building.jpg";
+import HospitalImg from "@/assets/imgs/Industries/Hospital.jpg";
+import ShoppingMallsImg from "@/assets/imgs/Industries/Shopping-Malls.jpg";
 
 // Filter data array - easily replaceable
 const industriesFilterData = [
@@ -32,7 +36,7 @@ const industriesContentData = [
         id: 1,
         categoryId: 1,
         title: "Industrial Solutions",
-        image: "https://cdn.echelonindustries.net/cdn/images/c2f4083649f39896_1775693896.jpg",
+        image: FactoriesImg,
         description: [
             "Enhance your manufacturing operations with our advanced industrial automation and safety solutions, tailored to optimize efficiency and ensure maximum uptime.",
             "From high-performance fire suppression systems to precision-engineered pump and motor installations, we deliver the technical excellence your facility requires.",
@@ -43,7 +47,7 @@ const industriesContentData = [
         id: 2,
         categoryId: 2,
         title: "Commercial Excellence",
-        image: "https://cdn.echelonindustries.net/cdn/images/49f712fe0a6e4565_1775694002.jpg",
+        image: CommercialBuildingImg,
         description: [
             "Modern commercial building solutions with state-of-the-art technology and innovative design approaches for business success.",
             "Expert planning and execution for commercial spaces that drive productivity and create impressive environments.",
@@ -54,7 +58,7 @@ const industriesContentData = [
         id: 3,
         categoryId: 3,
         title: "Healthcare Facilities",
-        image: "https://cdn.echelonindustries.net/cdn/images/96970849f53d89f2_1775694152.jpg",
+        image: HospitalImg,
         description: [
             "Specialized hospital construction with focus on patient care, hygiene standards, and medical equipment integration.",
             "Advanced healthcare facility design incorporating modern medical technology and patient comfort considerations.",
@@ -65,7 +69,7 @@ const industriesContentData = [
         id: 4,
         categoryId: 4,
         title: "Retail Spaces",
-        image: "https://cdn.echelonindustries.net/cdn/images/3a7c80a3b1199864_1775694468.jpg",
+        image: ShoppingMallsImg,
         description: [
             "Dynamic shopping mall development with focus on customer experience, retail flow, and modern amenities.",
             "Innovative retail space design creating engaging environments that attract visitors and boost business.",

@@ -1,42 +1,24 @@
 import { motion } from "framer-motion";
+import Partner1 from "@/assets/imgs/Partner-1.png";
+import Partner2 from "@/assets/imgs/Partner-2.png";
+import Partner3 from "@/assets/imgs/Partner-3.png";
+import Partner4 from "@/assets/imgs/Partner-4.png";
+import Partner5 from "@/assets/imgs/Partner-5.png";
+import Partner6 from "@/assets/imgs/Partner-6.png";
+import Partner7 from "@/assets/imgs/Partner-7.png";
+import Partner8 from "@/assets/imgs/Partner-8.png";
+import Partner9 from "@/assets/imgs/Partner-9.png";
 
 const PartnerData = [
-    {
-        image: "https://cdn.echelonindustries.net/cdn/images/244354fed247fd84_1775845874.png",
-        lightVariant: ""
-    },
-    {
-        image: "https://cdn.echelonindustries.net/cdn/images/a3adc8f6e8c7ed31_1775848515.png",
-        lightVariant: "https://cdn.echelonindustries.net/cdn/images/294844af57f2f486_1775845898.png"
-    },
-    {
-        image: "https://cdn.echelonindustries.net/cdn/images/7a7576636e82dac8_1775846144.png",
-        lightVariant: ""
-    },
-    {
-        image: "https://cdn.echelonindustries.net/cdn/images/3630225f001c6925_1775847832.png",
-        lightVariant: "https://cdn.echelonindustries.net/cdn/images/00b3354aa927488b_1775847405.png"
-    },
-    {
-        image: "https://cdn.echelonindustries.net/cdn/images/e561d9efe6267eeb_1775848298.png",
-        lightVariant: ""
-    },
-    {
-        image: "https://cdn.echelonindustries.net/cdn/images/e236095c8a0d5b2c_1775848443.png",
-        lightVariant: ""
-    },
-    {
-        image: "https://cdn.echelonindustries.net/cdn/images/8baa81e721568f0d_1775848635.webp",
-        lightVariant: "https://cdn.echelonindustries.net/cdn/images/cab7ed3523635062_1775848704.png"
-    },
-    {
-        image: "https://cdn.echelonindustries.net/cdn/images/800137e5b44d3aa5_1775848756.png",
-        lightVariant: ""
-    },
-    {
-        image: "https://cdn.echelonindustries.net/cdn/images/20769cd04d0be61b_1775848810.png",
-        lightVariant: ""
-    },
+    { image: Partner1, lightVariant: "" },
+    { image: Partner2, lightVariant: "" },
+    { image: Partner3, lightVariant: "" },
+    { image: Partner4, lightVariant: "" },
+    { image: Partner5, lightVariant: "" },
+    { image: Partner6, lightVariant: "" },
+    { image: Partner7, lightVariant: "" },
+    { image: Partner8, lightVariant: "" },
+    { image: Partner9, lightVariant: "" },
 ]
 
 export default function Partners({ theme = "light" }) {

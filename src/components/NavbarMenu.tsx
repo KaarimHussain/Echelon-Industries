@@ -89,6 +89,10 @@ export default function Navbar() {
                             Our Projects
                         </Link>
 
+                        <Link to="/blog" className="text-sm text-secondary-foreground hover:text-primary transition-colors font-medium">
+                            Blog
+                        </Link>
+
                         <Link to="/contact" className="text-sm text-secondary-foreground hover:text-primary transition-colors font-medium">
                             Contact Us
                         </Link>
@@ -176,6 +180,16 @@ export default function Navbar() {
                                         onClick={() => setIsOpen(false)}
                                     >
                                         Our Projects
+                                    </Link>
+                                </motion.div>
+
+                                <motion.div initial={{ x: -10, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.45 }}>
+                                    <Link
+                                        to="/blog"
+                                        className="text-primary-foreground hover:text-primary transition-colors font-medium px-2 py-3 flex items-center justify-between"
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        Blog
                                     </Link>
                                 </motion.div>
 
