@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
 import { useEffect } from "react"
 import { AnimatePresence } from "framer-motion"
-import { HelmetProvider } from "react-helmet-async"
+import { HelmetProvider, Helmet } from "react-helmet-async"
+import { organizationSchema, websiteSchema } from "@/lib/seo"
 import Home from "@/views/Home"
 import Footer from "./components/Footer"
 import CompanyProfile from "./views/Company-Profile"
@@ -49,6 +50,10 @@ function AnimatedRoutes() {
 function App() {
   return (
     <HelmetProvider>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
+      </Helmet>
       <Router>
         <ScrollToTop />
         <Navbar />
