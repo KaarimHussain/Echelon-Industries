@@ -103,7 +103,7 @@
 **What was built:** A complete SEO-optimised blog system integrated with an external headless CMS API.
 
 **API Details:**
-- Base URL: `https://slateblue-alpaca-111274.hostingersite.com/api/v1/echelon-industries`
+- Base URL: `https://blog.syntrixsys.com/api/v1/echelon-industries`
 - Auth: Bearer token (stored in `.env.local`)
 - List endpoint: `GET /posts?limit=20` — returns `{ data: [], nextCursor: null }`
 - Single post endpoint: `GET /posts/:slug` — returns `{ data: { ...post } }`
